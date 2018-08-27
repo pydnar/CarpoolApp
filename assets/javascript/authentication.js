@@ -35,7 +35,6 @@ $(document).ready(() => {
             });
         } else {
             $('#auth').text('Sign Out');
-            $('#auth').text('Sign In');
             USER = undefined;
             USER_TOKEN = undefined;
             UID = undefined;
