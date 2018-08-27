@@ -8,12 +8,13 @@ $(document).ready(() => {
 
     var authentication = firebase.auth();
     var googleProvider = new firebase.auth.GoogleAuthProvider();
-
+/*
     if (USER === undefined) {
         $('#auth').text('Sign In');
     } else {
         $('#auth').text('Sign Out');
     }
+ */
 
     $('#auth').click(function () {
         if (USER == undefined) {
