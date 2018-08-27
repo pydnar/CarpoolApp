@@ -18,18 +18,6 @@ $(document).ready(() => {
     $('#auth').click(function () {
         if (USER == undefined) {
             $('#auth').text('Sign In');
-            USER = undefined;
-            USER_TOKEN = undefined;
-            UID = undefined;
-            firebase.auth().signOut().then(function () {
-                // Sign-out successful.
-                console.log("Signed Out");
-            }).catch(function (error) {
-                // An error happened.
-                console.log("Error on Sign Out");
-            });
-        } else {
-            $('#auth').text('Sign Out');
             authentication.signInWithPopup(googleProvider).then(function (result) {
                 if (result.credential) {
                     USER_TOKEN = result.credential.accessToken;
@@ -44,6 +32,19 @@ $(document).ready(() => {
                     uid: user.uid
                 };
                 CURRENT_PAGE.schedule();
+            });
+        } else {
+            $('#auth').text('Sign Out');
+            $('#auth').text('Sign In');
+            USER = undefined;
+            USER_TOKEN = undefined;
+            UID = undefined;
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful.
+                console.log("Signed Out");
+            }).catch(function (error) {
+                // An error happened.
+                console.log("Error on Sign Out");
 
             }).catch(function (error) {
                 var errorCode = error.code;
